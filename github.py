@@ -1,16 +1,3 @@
-"""String tools.
-
-This module returns us the mean and median of a list of numbers.
-
-Authors:
-    Philipp Buling <philipp.buling@icloud.com>
-
-
-.. _`Python Standard Library`:
-    https://docs.python.org/3.11/library
-
-"""
-
 import statistics
 
 def total(numbers):
@@ -26,3 +13,14 @@ def mean(numbers):
 def median(numbers):
     median = statistics.median(numbers)
     return median
+
+# ...
+
+# Path: simplestats.py
+# Compare this snippet from github.py:
+# """String tools.
+#
+# This module contains various string tools.
+#
+# Authors:
+#     Philipp Buling <

@@ -17,7 +17,6 @@ while True:
         print("Gesamtpreis: ", gesamtpreis, "EUR")
         print(20*"*")
     except ValueError:
-        print("Bitte geben Sie eine Zahl ein!")
-        print("Beispiel: 100")
+        print("Bitte geben Sie eine Zahl ein! Beispiel: 100")
         print(f"Preis: {preis}")
         print(f"Steuersatz: {steuersatz}")

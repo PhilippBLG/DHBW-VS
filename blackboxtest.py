@@ -10,3 +10,5 @@ speed = float(input("Speed (factor of c): "))
 ship_years = time_on_starship(earth_years, speed)
 
 print(ship_years)
+
+player_name =

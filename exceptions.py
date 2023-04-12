@@ -1,4 +1,3 @@
-user_input = input("Enter your age: ")
 try:
      age = int(input("Enter your age: "))
      if age < 3 or age > 130:

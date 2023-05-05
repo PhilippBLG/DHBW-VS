@@ -1,0 +1,26 @@
+Number of words: 270
+Number of chars: 1195
+Avg. characters per word: 4.43
+Number of vowels:
+	a:    78
+	e:   150
+	i:    95
+	o:    86
+	u:    36
+Most common vowel(s):
+	e:   150
+Top ten word counts:
+	the:	    14
+	i:	        9
+	and:	    9
+	of:	        8
+	is:	        7
+	it:	        6
+	a:	        6
+	to:	        5
+	me:	        5
+	whenever:	4
+	my:	        4
+	in:	        4
+	by:	        4
+

@@ -14,14 +14,10 @@ def missing_alphabet(string):
     return None
 
 def first_nondouble(string):
-    doubles = {}
     for letter in string:
-        doubles[letter] = 0
-    for letter in string:
-        doubles[letter] += 1
-    for letter in doubles:
-        if doubles.get(letter) == 1:
+        if string.count(letter) == 1:
             return letter
+    return None
 
 
 print(find_ducpliates(["a", "b", "c", "d", "c", "e", "f"]))

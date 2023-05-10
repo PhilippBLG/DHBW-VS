@@ -7,6 +7,7 @@ def find_ducpliates(array):
     return None
 
 
+
 def missing_alphabet(string):
     for letter in "abcdefghijklmnopqrstuvwxyz":
         if letter not in string:

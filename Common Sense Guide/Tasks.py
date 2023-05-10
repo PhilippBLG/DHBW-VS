@@ -8,8 +8,7 @@ def find_ducpliates(array):
 
 
 def missing_alphabet(string):
-    alphabet = "abcdefghijklmnopqrstuvwxyz"
-    for letter in alphabet:
+    for letter in "abcdefghijklmnopqrstuvwxyz":
         if letter not in string:
             return letter
     return None
@@ -18,9 +17,7 @@ def missing_alphabet(string):
 def first_nondouble(string):
     doubles = {}
     for letter in string:
-        doubles[letter] = 0
-    for letter in string:
-        doubles[letter] += 1
+        doubles[letter] = doubles.get(letter, 0) + 1
     for letter in doubles:
         if doubles.get(letter) == 1:
             return letter

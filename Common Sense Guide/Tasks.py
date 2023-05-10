@@ -6,12 +6,14 @@ def find_ducpliates(array):
         doubles[letter] = True
     return None
 
+
 def missing_alphabet(string):
     alphabet = "abcdefghijklmnopqrstuvwxyz"
     for letter in alphabet:
         if letter not in string:
             return letter
     return None
+
 
 def first_nondouble(string):
     doubles = {}
@@ -27,5 +29,3 @@ def first_nondouble(string):
 print(find_ducpliates(["a", "b", "c", "d", "c", "e", "f"]))
 print(missing_alphabet("the quick brown box jumps over a lazy dog"))
 print(first_nondouble("minimum"))
-
-

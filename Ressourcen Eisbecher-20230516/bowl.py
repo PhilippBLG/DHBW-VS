@@ -6,7 +6,7 @@ Authors:
 
 
 class Scoop:
-    """ Represents a single scoop of ice."""
+    """ Represents a single scoop of ice cream."""
     def __init__(self, flavour):
         """ Initialize.
 
@@ -14,23 +14,20 @@ class Scoop:
             flavour (str): Flavour of ice cream (e. g. "Vanilla").
 
         """
-        # Your code here
-        pass
+        self.flavour = flavour
 
     def __str__(self):
-        # Your code here. Note: returns a string
-        pass
+        return f"Scoop with flavour '{self.flavour}'"
 
 
 class Bowl:
     """ A bowl of ice cream scoops. """
     def __init__(self):
-        # Your code here.
-        pass
+        self.bowl = []
 
     def __str__(self):
-        # Your code here.
-        pass
+        scoops_str = ' \n'.join(str(scoop) for scoop in self.bowl)
+        return f"Bowl with scoops: \n{scoops_str}"
 
     def add_scoops(self, scoops):
         """ Add scoops to bowl.
@@ -39,8 +36,7 @@ class Bowl:
             scoops (list of Scoop): scoops to be added.
 
         """
-        # Your code here.
-        pass
+        self.bowl.extend(scoops)
 
 
 # Test code

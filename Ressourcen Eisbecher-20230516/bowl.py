@@ -24,10 +24,11 @@ class Bowl:
     """ A bowl of ice cream scoops. """
     def __init__(self):
         self.bowl = []
+        self.scoop_list = []
 
     def __str__(self):
-        scoops_str = ' \n'.join(str(scoop) for scoop in self.bowl)
-        return f"Bowl with scoops: \n{scoops_str}"
+        scoops_str = '\n'.join(str(scoop) for scoop in self.bowl)
+        return f"Bowl contains:\n{scoops_str}"
 
     def add_scoops(self, scoops):
         """ Add scoops to bowl.
@@ -36,6 +37,8 @@ class Bowl:
             scoops (list of Scoop): scoops to be added.
 
         """
+        for scoop in scoops:
+            self.scoop_list.append(str(scoop))
         self.bowl.extend(scoops)
 
 

@@ -7,6 +7,9 @@ Authors:
 
 class Scoop:
     """ Represents a single scoop of ice cream."""
+
+    price = 120
+
     def __init__(self, flavour):
         """ Initialize.
 
@@ -14,21 +17,24 @@ class Scoop:
             flavour (str): Flavour of ice cream (e. g. "Vanilla").
 
         """
-        self.flavour = flavour
+        self._flavour = flavour
 
     def __str__(self):
-        return f"Scoop with flavour '{self.flavour}'"
+        return f"Scoop with flavour '{self._flavour}'"
 
 
 class Bowl:
     """ A bowl of ice cream scoops. """
+
+    max_scoops = 8
+
     def __init__(self):
         self.bowl = []
-        self.scoop_list = []
+        self._scoop_list = []
 
     def __str__(self):
-        scoops_str = '\n'.join(str(scoop) for scoop in self.bowl)
-        return f"Bowl contains:\n{scoops_str}"
+        scoops_str = '\n'.join(str(scoop) for scoop in self._scoop_list)
+        return f"Bowl for {self.get_price()//100} Euro and {self.get_price()%100} Cent contains:\n{scoops_str}"
 
     def add_scoops(self, scoops):
         """ Add scoops to bowl.
@@ -38,8 +44,12 @@ class Bowl:
 
         """
         for scoop in scoops:
-            self.scoop_list.append(str(scoop))
-        self.bowl.extend(scoops)
+            if len(self._scoop_list) == self.max_scoops:
+                break
+            self._scoop_list.append(str(scoop))
+
+    def get_price(self):
+        return len(self._scoop_list)*Scoop.price
 
 
 # Test code

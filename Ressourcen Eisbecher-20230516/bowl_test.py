@@ -10,7 +10,7 @@ from bowl import Bowl
 
 def test_scoop():
     s = Scoop("Vanilla")
-    assert s.flavour == "Vanilla"
+    assert s._flavour == "Vanilla"
 
 
 def test_scoop_str():

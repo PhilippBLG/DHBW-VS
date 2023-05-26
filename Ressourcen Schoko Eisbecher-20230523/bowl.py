@@ -75,7 +75,7 @@ class ChocBowl(Bowl):
             if len(self._scoop_list) == self.max_scoops:
                 break
             if str(scoop) == str(Scoop("Chocolate")):
-                self._scoop_list.append(str(scoop))
+                self._scoop_list.append(scoop)
             #else:
                 #raise ValueError("ChocBowl can only contain Chocolate Scoops")
 

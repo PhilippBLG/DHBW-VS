@@ -1,7 +1,7 @@
 """Represents a bowl of ice cream.
 
 Authors:
-    John Doe <mail@johndoe.org>
+    Philipp Buling <pbuling@kpmg.com>
 """
 
 

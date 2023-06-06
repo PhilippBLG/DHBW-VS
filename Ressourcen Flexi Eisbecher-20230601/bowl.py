@@ -22,6 +22,7 @@ class Scoop:
     def __str__(self):
         return f"Scoop with flavour '{self.flavour}'"
 
+    @staticmethod
     def get_price():
         return 120
 
@@ -32,6 +33,7 @@ class Cream:
     def __init__(self, sugar=False):
         self.sugared = sugar
 
+    @staticmethod
     def get_price():
         return 100
 
@@ -52,14 +54,14 @@ class Bowl():
 
     def __str__(self):
         scoops_str = '\n'.join(str(scoop) for scoop in self._scoop_list)
-        cream_str = "\n".join(str(cream) for cream in self._cream_list)
-        if cream_str is not "":
+        cream_str = "\n".join(str(Cream(cream)) for cream in self._cream_list)
+        if cream_str != "":
             cream_str += "\n"
         return f"Bowl for {self.get_price() // 100} Euro and {self.get_price() % 100} Cent contains:\n" \
                f"{cream_str}" \
                f"{scoops_str}"
 
-    def add_scoops(self, scoops):
+    def add_scoops(self, *scoops):
         """ Add scoops to bowl.
 
         Args:
@@ -69,13 +71,16 @@ class Bowl():
         for scoop in scoops:
             if len(self._scoop_list) == self._max_scoops:
                 break
-            self._scoop_list.append(str(scoop))
+            self._scoop_list.append(scoop)
 
     def get_price(self):
-        return len(self._scoop_list)*Scoop.price
+        return len(self._scoop_list)*Scoop.price+len(self._cream_list)*Cream.get_price()
 
-    def add_cream(self, cream):
-        self._cream_list.append(cream)
+    def add_cream(self, *cream):
+        if len(self._cream_list) + 1 + len(*cream) > self._max_cream:
+            return
+        for creams in cream:
+            self._cream_list.append(creams)
 
 
 class ChocBowl(Bowl):
@@ -85,7 +90,7 @@ class ChocBowl(Bowl):
         self._scoop_list = [Scoop("Chocolate"), Scoop("Chocolate"), Scoop("Chocolate")]
         self._cream_list = [Cream(sugar=False)]
 
-    def add_scoops(self, scoops):
+    def add_scoops(self, *scoops):
         for scoop in scoops:
             if len(self._scoop_list) == self._max_scoops:
                 break
@@ -94,12 +99,6 @@ class ChocBowl(Bowl):
     def get_price(self):
         return len(self._scoop_list)*Scoop.get_price()+len(self._cream_list)*Cream.get_price()
 
-    # def __str__(self):
-    #     scoops_str = '\n'.join(str(scoop) for scoop in self._scoop_list)
-    #     cream_str = "\n".join(str(cream) for cream in self._cream_list)
-    #     return f"Bowl for {self.get_price() // 100} Euro and {self.get_price() % 100} Cent contains:\n" \
-    #            f"{cream_str}\n" \
-    #            f"{scoops_str}"
 # Test code
 if __name__ == "__main__":
     s1 = Scoop("Vanilla")
@@ -109,8 +108,9 @@ if __name__ == "__main__":
     for s in scoops:
         print(s)
 
-    b = Bowl()
-    b.add_scoops([s1, s2])
-    b.add_scoops([s3])
-    b.add_scoops([Scoop("Raspberry")])
+    b = Bowl(8, 3)
+    b.add_scoops(s1, s2)
+    b.add_scoops(s3)
+    b.add_scoops(Scoop("Raspberry"), Scoop("Blueberry"), Scoop("Melon"))
+    b.add_cream(True, True, False)
     print(b)
